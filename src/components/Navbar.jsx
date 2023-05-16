@@ -9,7 +9,7 @@ export const Navbar = () => {
           <img src="./Logo/Vector Smart Object.png" className="w-full" alt="" />
         </div>
 
-        <div className="menu hidden lg:flex justify-between flex-grow">
+        <div className="menu hidden lg:flex gap-8 justify-between">
           <NavLink
             to="/about"
             className="transition-colors duration-300 text-base px-2 hover:text-dark-blue-itlista"
@@ -20,43 +20,31 @@ export const Navbar = () => {
             to="/about"
             className="transition-colors duration-300 text-base px-2 hover:text-dark-blue-itlista"
           >
-            من نحن
+            خدماتنا
           </NavLink>
           <NavLink
             to="/about"
             className="transition-colors duration-300 text-base px-2 hover:text-dark-blue-itlista"
           >
-            من نحن
+            باقات التسويق
           </NavLink>
           <NavLink
             to="/about"
             className="transition-colors duration-300 text-base px-2 hover:text-dark-blue-itlista"
           >
-            من نحن
+            عملاؤنا
           </NavLink>
           <NavLink
             to="/about"
             className="transition-colors duration-300 text-base px-2 hover:text-dark-blue-itlista"
           >
-            من نحن
+            أعمالنا
           </NavLink>
           <NavLink
             to="/about"
             className="transition-colors duration-300 text-base px-2 hover:text-dark-blue-itlista"
           >
-            من نحن
-          </NavLink>
-          <NavLink
-            to="/about"
-            className="transition-colors duration-300 text-base px-2 hover:text-dark-blue-itlista"
-          >
-            من نحن
-          </NavLink>
-          <NavLink
-            to="/about"
-            className="transition-colors duration-300 text-base px-2 hover:text-dark-blue-itlista"
-          >
-            من نحن
+            تواصل معنا
           </NavLink>
         </div>
 
