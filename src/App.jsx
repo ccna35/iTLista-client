@@ -1,16 +1,28 @@
+import Root from "./Root";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import AboutUs from "./pages/AboutUs";
 import { useState } from "react";
+import Home from "./pages/Home";
+
+let router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        path: "about",
+        element: <AboutUs />,
+      },
+      {
+        path: "/",
+        element: <Home />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <div>
-      <h1 className="text-3xl text-orange-itlista">مرحبا بكم</h1>
-      <p className="text-lg">
-        نمارس فن تصميم الشعارات والهوية البصرية وندمج الجمال مع الأعمال. نقدم لك
-        عبر باقاتنا مجموعة متنوعة ومتكاملة من التصاميم التي تُكَوٍن هويتك
-        البصرية. لذلك اختر الباقة المناسبة لك الآن!
-      </p>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
