@@ -1,4 +1,6 @@
+import { useInView } from "framer-motion";
 import Card from "./Card";
+import { useRef } from "react";
 
 const Services = () => {
   const cardInfo = [
@@ -47,7 +49,7 @@ const Services = () => {
           اكتشف خدمات ITLista
         </h2>
         <div className="text-center flex flex-col gap-4">
-          <div className="flex gap-4 justify-center items-center">
+          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
             <div className="border w-16 h-16 overflow-hidden rounded-full">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/a/af/Bill_Gates_-_Nov._8%2C_2019.jpg"
@@ -55,8 +57,8 @@ const Services = () => {
                 className="w-full object-cover transition-all duration-300 grayscale hover:grayscale-0"
               />
             </div>
-            <p className="flex gap-2">
-              <span className="">
+            <p className="flex flex-col md:flex-row gap-2">
+              <span className="font-medium">
                 إذا لم يكن لأعمالك وجود على الإنترنت فستختفي من قائمة الأعمال.
               </span>
               <span className="font-thin">“Bill Gates”</span>

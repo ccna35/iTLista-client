@@ -1,3 +1,5 @@
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 import { ImCheckboxChecked } from "react-icons/im";
 
 const WhyChooseUs = () => {
@@ -31,6 +33,10 @@ const WhyChooseUs = () => {
       text: "نبتكر الحلول و نتفاعل بإستمرار مع عملائنا",
     },
   ];
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
     <section className="py-8 px-4 md:px-0">
       <div className="container m-auto flex flex-col gap-8">
@@ -41,8 +47,13 @@ const WhyChooseUs = () => {
           {reasons.map((reason) => {
             return (
               <div
-                className="item flex gap-4 items-center text-lg"
+                className={`${
+                  isInView
+                    ? "translate-x-0 opacity-100"
+                    : "translate-x-full opacity-0"
+                } transition-all duration-700 item flex gap-4 items-center text-lg`}
                 key={reason.id}
+                ref={ref}
               >
                 <ImCheckboxChecked className="text-dark-blue-itlista" />
                 <p>{reason.text}</p>
