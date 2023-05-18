@@ -40,7 +40,7 @@ const WhyWeAreSpecial = () => {
           وترقبوا النتائج
         </p>
         <img src="./Good team-bro.svg" className="max-w-xl" />
-        <div className="flex flex-wrap gap-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {stats.map((stat) => {
             return (
               <div className="flex flex-col gap-2 items-center" key={stat.id}>

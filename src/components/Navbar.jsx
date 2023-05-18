@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
 import { GrClose } from "react-icons/gr";
@@ -81,17 +81,23 @@ export const Navbar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
 
   return (
-    <nav className="p-4 md:px-0 bg-white">
-      <div className="container m-auto flex gap-32 items-center justify-between">
-        <div className="logo w-16">
-          <img src="./Logo/Vector Smart Object.png" className="w-full" alt="" />
-        </div>
+    <nav className="p-4 lg:p-0 bg-white">
+      <div className="container m-auto flex gap-32 items-stretch justify-between">
+        <Link to="/">
+          <div className="logo w-24 h-full flex items-center">
+            <img
+              src="./Logo/Vector Smart Object.png"
+              className="w-full"
+              alt=""
+            />
+          </div>
+        </Link>
 
         <div className="menu hidden lg:flex gap-8 justify-between">
           {menuItems.map((item) => {
             return (
               <div
-                className="flex flex-col gap-4 relative group bg-white w-max transition-all duration-300"
+                className="flex flex-col py-4 justify-center gap-4 relative group bg-white w-max transition-all duration-300"
                 key={item.id}
               >
                 <NavLink
@@ -103,13 +109,13 @@ export const Navbar = () => {
                     <IoIosArrowDown className="inline mr-2" />
                   )}
                 </NavLink>
-                {
-                  <div className="invisible flex py-4 bg-white w-max transition-all duration-300 flex-col gap-2 absolute top-20 opacity-30 group-hover:top-6 group-hover:opacity-100 group-hover:visible">
+                {item.dropdownItems && (
+                  <div className="invisible shadow-lg flex bg-white py-4 pl-4 w-max transition-all duration-300 flex-col gap-2 absolute top-20 opacity-30 group-hover:top-full group-hover:opacity-100 group-hover:visible">
                     {item.dropdownItems?.map((item) => {
                       return (
                         <NavLink
                           to={item.href}
-                          className="transition-colors duration-300 text-base px-2 hover:text-dark-blue-itlista"
+                          className="transition-all duration-300 text-base px-2 hover:text-dark-blue-itlista  hover:-translate-x-2"
                           key={item.id}
                         >
                           {item.text}
@@ -117,7 +123,7 @@ export const Navbar = () => {
                       );
                     })}
                   </div>
-                }
+                )}
               </div>
             );
           })}
@@ -185,13 +191,13 @@ export const Navbar = () => {
         </div>
 
         <div
-          className="lg:hidden"
+          className="lg:hidden flex items-center"
           onClick={() => {
             setShowSidebar(true);
             console.log("clicked");
           }}
         >
-          <HiMenuAlt2 className="text-xl cursor-pointer transition-colors duration-300 hover:text-dark-blue-itlista" />
+          <HiMenuAlt2 className="text-4xl cursor-pointer transition-colors duration-300 hover:text-dark-blue-itlista" />
         </div>
         {/* <button className="hidden lg:block py-2 px-4 rounded-md bg-dark-blue-itlista text-white transition-colors duration-300 hover:bg-medium-blue-itlista">
           اتصل بنا
