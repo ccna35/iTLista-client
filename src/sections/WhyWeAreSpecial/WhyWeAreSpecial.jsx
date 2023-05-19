@@ -1,4 +1,5 @@
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import Stat from "./Stat";
 import { useRef } from "react";
 
 const WhyWeAreSpecial = () => {
@@ -26,7 +27,7 @@ const WhyWeAreSpecial = () => {
   ];
 
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, amount: "all" });
 
   return (
     <section className="py-8 px-4 md:px-0 bg-sectionBg">
@@ -39,20 +40,16 @@ const WhyWeAreSpecial = () => {
           آلاف العملاء تجعل من شركتنا خياركم الأفضل لتحقيق أهدافكم. تواصلوا معنا
           وترقبوا النتائج
         </p>
-        <img src="./Good team-bro.svg" className="max-w-xl" />
+        <motion.img
+          src="./Good team-bro.svg"
+          className={`${
+            isInView ? "grayscale-0 opacity-100" : "grayscale opacity-0"
+          } transition-all duration-1000 max-w-xl`}
+          ref={ref}
+        />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {stats.map((stat) => {
-            return (
-              <div className="flex flex-col gap-2 items-center" key={stat.id}>
-                <p
-                  className="text-5xl font-bold text-dark-blue-itlista"
-                  ref={ref}
-                >
-                  {stat.count}
-                </p>
-                <p className="text-2xl text-orange-itlista">{stat.text}</p>
-              </div>
-            );
+            return <Stat stat={stat} key={stat.id} />;
           })}
         </div>
       </div>

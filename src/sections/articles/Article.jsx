@@ -18,7 +18,7 @@ const Article = () => {
           يعدّ الإنترنت من أهم وأسرع وسائل البحث والتحقق من المعلومات في العصر
           الحالي، وقد تحولت الشبكة العنكبوتية إلى وسيلة أساسية
         </p>
-        <button className="hidden lg:block py-2 px-4 rounded-md bg-dark-blue-itlista text-white transition-colors duration-300 hover:bg-medium-blue-itlista">
+        <button className="py-2 px-4 rounded-md bg-dark-blue-itlista text-white transition-colors duration-300 hover:bg-medium-blue-itlista">
           اقرأ المزيد
         </button>
       </div>

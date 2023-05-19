@@ -1,7 +1,4 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-
-const SuccessPartners = () => {
+const WhoWeAre = () => {
   const images = [
     {
       id: 1,
@@ -44,4 +41,4 @@ const SuccessPartners = () => {
   );
 };
 
-export default SuccessPartners;
+export default WhoWeAre;

@@ -9,7 +9,7 @@ const Card = ({ card }) => {
     <div
       className={`${
         isInView ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
-      } transition-all duration-700 bg-white border border-gray-300 shadow-lg rounded-lg p-4 flex flex-col items-center gap-4 text-center`}
+      } transition-all duration-1000 bg-white border border-gray-300 shadow-lg rounded-lg p-4 flex flex-col items-center gap-4 text-center`}
       ref={ref}
     >
       <img src={card.img} className="w-20" />

@@ -7,10 +7,10 @@ const Header = () => {
       <div className="flex flex-col items-center gap-8">
         <motion.h2
           className="text-5xl leading-relaxed text-white text-center"
-          initial={{ y: -10, opacity: 0 }}
+          initial={{ y: -80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{
-            duration: 0.5,
+            duration: 1,
             delay: 1,
           }}
         >
@@ -18,10 +18,10 @@ const Header = () => {
         </motion.h2>
         <motion.button
           className="py-2 px-4 rounded-md bg-dark-blue-itlista text-white transition-colors duration-300 hover:bg-medium-blue-itlista flex justify-center items-center gap-4"
-          initial={{ y: 10, opacity: 0 }}
+          initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{
-            duration: 0.5,
+            duration: 1,
             delay: 1.5,
           }}
         >

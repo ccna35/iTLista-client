@@ -1,8 +1,10 @@
 import Root from "./Root";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Home from "./pages/Home";
+import Particles from "react-particles";
+import { loadFull } from "tsparticles";
 
 let router = createBrowserRouter([
   {
