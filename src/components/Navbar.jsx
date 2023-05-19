@@ -3,7 +3,6 @@ import { HiMenuAlt2 } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
 import { GrClose } from "react-icons/gr";
 import { useState } from "react";
-import { animate } from "framer-motion";
 
 export const Navbar = () => {
   const menuItems = [
@@ -80,6 +79,16 @@ export const Navbar = () => {
 
   const [showSidebar, setShowSidebar] = useState(false);
 
+  const [active, setActive] = useState(null);
+
+  const handleNavItems = (id) => {
+    active === null
+      ? setActive(id)
+      : active === id
+      ? setActive(null)
+      : active !== id && setActive(id);
+  };
+
   return (
     <nav className="p-4 lg:p-0 bg-white">
       <div className="container m-auto flex gap-32 items-stretch justify-between">
@@ -148,11 +157,7 @@ export const Navbar = () => {
             <div className="flex flex-col gap-4">
               {menuItems.map((item) => {
                 return (
-                  <div
-                    className=""
-                    key={item.id}
-                    onClick={() => animate(".dropdown", { maxHeight: "auto" })}
-                  >
+                  <div key={item.id} onClick={() => handleNavItems(item.id)}>
                     <NavLink
                       to={item.href}
                       className="transition-colors duration-300 text-base px-2 hover:text-dark-blue-itlista font-semibold"
@@ -163,8 +168,8 @@ export const Navbar = () => {
                       )}
                     </NavLink>
 
-                    {item.dropdownItems && (
-                      <div className="dropdown flex flex-col overflow-hidden py-4 bg-white transition-all duration-300 gap-2">
+                    {item.dropdownItems && active === item.id && (
+                      <div className="dropdown flex flex-col py-4 transition-all delay-500 duration-1000 gap-2">
                         {item.dropdownItems?.map((item) => {
                           return (
                             <NavLink
@@ -181,6 +186,37 @@ export const Navbar = () => {
                   </div>
                 );
               })}
+              {/* {menuItems.map((item) => {
+                return (
+                  <Disclosure key={item.id}>
+                    <Disclosure.Button>
+                      <NavLink to={item.href}>
+                        {item.text}
+                        {item.dropdownItems && (
+                          <IoIosArrowDown className="inline mr-2" />
+                        )}
+                      </NavLink>
+                    </Disclosure.Button>
+
+                    <Transition
+                      enter="transition duration-100 ease-out"
+                      enterFrom="transform scale-95 opacity-0"
+                      enterTo="transform scale-100 opacity-100"
+                      leave="transition duration-75 ease-out"
+                      leaveFrom="transform scale-100 opacity-100"
+                      leaveTo="transform scale-95 opacity-0"
+                    >
+                      {item.dropdownItems?.map((drop) => {
+                        return (
+                          <Disclosure.Panel className="" key={drop.id}>
+                            {drop.text}
+                          </Disclosure.Panel>
+                        );
+                      })}
+                    </Transition>
+                  </Disclosure>
+                );
+              })} */}
             </div>
 
             <GrClose
@@ -194,7 +230,6 @@ export const Navbar = () => {
           className="lg:hidden flex items-center"
           onClick={() => {
             setShowSidebar(true);
-            console.log("clicked");
           }}
         >
           <HiMenuAlt2 className="text-4xl cursor-pointer transition-colors duration-300 hover:text-dark-blue-itlista" />
