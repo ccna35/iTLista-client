@@ -1,13 +1,10 @@
 import { useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import CountUp from "react-countup";
 
 const Stat = ({ stat }) => {
-  const countUpRef = useRef(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-
-  console.log(isInView);
 
   return (
     <div

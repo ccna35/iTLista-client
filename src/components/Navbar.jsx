@@ -3,6 +3,7 @@ import { HiMenuAlt2 } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
 import { GrClose } from "react-icons/gr";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export const Navbar = () => {
   const menuItems = [
@@ -73,7 +74,7 @@ export const Navbar = () => {
     {
       id: 6,
       text: "تواصل معنا",
-      href: "/about",
+      href: "/contact",
     },
   ];
 
@@ -106,7 +107,7 @@ export const Navbar = () => {
           {menuItems.map((item) => {
             return (
               <div
-                className="flex flex-col py-4 justify-center gap-4 relative group bg-white w-max transition-all duration-300"
+                className="flex flex-col py-6 justify-center gap-4 relative group bg-white w-max transition-all duration-300"
                 key={item.id}
               >
                 <NavLink
@@ -119,7 +120,7 @@ export const Navbar = () => {
                   )}
                 </NavLink>
                 {item.dropdownItems && (
-                  <div className="invisible shadow-lg flex bg-white py-4 pl-4 w-max transition-all duration-300 flex-col gap-2 absolute top-20 opacity-30 group-hover:top-full group-hover:opacity-100 group-hover:visible">
+                  <div className="invisible shadow-lg flex bg-white py-4 pl-4 w-max transition-all duration-100 flex-col gap-2 absolute top-20 opacity-0 group-hover:top-full group-hover:opacity-100 group-hover:visible">
                     {item.dropdownItems?.map((item) => {
                       return (
                         <NavLink
@@ -139,7 +140,7 @@ export const Navbar = () => {
         </div>
 
         <div
-          className={`mobile-menu fixed top-0 right-0 w-full h-screen bg-transparent ${
+          className={`mobile-menu z-[9999] fixed top-0 right-0 w-full h-screen bg-transparent ${
             showSidebar ? "visible" : "invisible"
           }`}
         >

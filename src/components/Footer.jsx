@@ -3,13 +3,15 @@ import { FaLocationArrow, FaPhone, FaMailBulk } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="py-8 px-4 md:px-0 bg-dark-grey-itlista text-white">
+    <footer className="bg-white text-dark-grey-itlista border-t">
       <div className="container m-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          <div className="flex flex-col gap-4">
-            <h2 className="text-3xl text-right text-orange-itlista leading-none">
-              iTLista
-            </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-8 px-4 md:px-0">
+          <div className="flex flex-col gap-4 justify-start">
+            <img
+              src="./Logo/Vector Smart Object.png"
+              className="w-40 grayscale"
+              alt=""
+            />
             <p>
               iTLista شركة تسويق الكتروني وخدمات في مجال تكنولوجيا المعلومات
               والانترنت جاءت لتكون إضافة إبداعية في العالم الرقمي ونمت بنجاح
@@ -108,6 +110,16 @@ const Footer = () => {
               </a>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="py-4 px-4 md:px-0 bg-dark-grey-itlista text-white">
+        <div className="container mx-auto flex flex-wrap gap-4 justify-between items-center">
+          <p>جميع الحقوق محفوظة ©2023 لموقعنا iTLista</p>
+          <img
+            src="./payment_icon_collection_222-1200x123.png"
+            className="max-w-sm"
+            alt=""
+          />
         </div>
       </div>
     </footer>

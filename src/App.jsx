@@ -5,6 +5,7 @@ import { useCallback, useState } from "react";
 import Home from "./pages/Home";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
+import ContactUs from "./pages/ContactUs";
 
 let router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ let router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs />,
       },
     ],
   },

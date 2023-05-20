@@ -1,12 +1,5 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper/core";
-import Slider from "react-slick";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-
-// install Swiper modules
-SwiperCore.use([Autoplay, Pagination, Navigation]);
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 const Customers = () => {
   const images = [
@@ -52,13 +45,21 @@ const Customers = () => {
     },
   ];
 
-  const settings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 1000,
+  const items = images.map((img) => {
+    return (
+      <div
+        className="item grid place-items-center aspect-square"
+        data-value={img.id}
+      >
+        <img src={img.src} className="w-20 md:w-40 invert" />
+      </div>
+    );
+  });
+
+  const responsive = {
+    0: { items: 3 },
+    568: { items: 3 },
+    1024: { items: 4 },
   };
 
   return (
@@ -71,61 +72,35 @@ const Customers = () => {
           من عملاء iTLista
         </h2>
 
-        {/* <Slider {...settings}>
-          {images.map((img) => {
-            console.log(img);
-            return (
-              <div
-                className="bg-gray-950 p-2 rounded-lg grid place-items-center"
-                key={img.id}
-              >
-                <img src={img.src} className="w-40" />
-              </div>
-            );
-          })}
-        </Slider> */}
-
-        <Swiper
-          loop={true}
-          spaceBetween={50}
-          slidesPerView={7}
-          autoplay={{
-            delay: 2000,
-            reverseDirection: true,
-            disableOnInteraction: false,
-          }}
-          className="mb-20"
-        >
-          {images.map((img) => {
-            return (
-              <SwiperSlide key={img.id}>
-                <div className="bg-gray-950 p-2 rounded-lg grid place-items-center">
-                  <img src={img.src} className="w-40" />
-                </div>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-        <Swiper
-          loop={true}
-          spaceBetween={50}
-          slidesPerView={7}
-          autoplay={{
-            delay: 2000,
-            reverseDirection: true,
-            disableOnInteraction: false,
-          }}
-        >
-          {images.map((img) => {
-            return (
-              <SwiperSlide key={img.id}>
-                <div className="bg-gray-950 p-2 rounded-lg grid place-items-center">
-                  <img src={img.src} className="w-40" />
-                </div>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+        <AliceCarousel
+          autoPlay
+          autoPlayStrategy="default"
+          autoPlayInterval={10}
+          animationDuration={10000}
+          animationType="fadeout"
+          infinite
+          touchTracking={false}
+          disableDotsControls
+          disableButtonsControls
+          items={items}
+          responsive={responsive}
+          animationEasingFunction="linear"
+        />
+        <AliceCarousel
+          autoPlay
+          autoPlayStrategy="default"
+          autoPlayInterval={10}
+          animationDuration={10000}
+          animationType="fadeout"
+          infinite
+          touchTracking={false}
+          disableDotsControls
+          disableButtonsControls
+          items={items}
+          responsive={responsive}
+          animationEasingFunction="linear"
+          autoPlayDirection="rtl"
+        />
       </div>
     </section>
   );

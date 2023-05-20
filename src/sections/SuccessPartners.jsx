@@ -1,5 +1,5 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 const SuccessPartners = () => {
   const images = [
@@ -37,6 +37,20 @@ const SuccessPartners = () => {
     },
   ];
 
+  const items = images.map((img) => {
+    return (
+      <div className="item grid place-items-center" data-value={img.id}>
+        <img src={img.src} className="w-20 md:w-40" />
+      </div>
+    );
+  });
+
+  const responsive = {
+    0: { items: 3 },
+    568: { items: 3 },
+    1024: { items: 4 },
+  };
+
   return (
     <section className="py-8 px-4 md:px-0 my-12">
       <div className="container m-auto">
@@ -46,15 +60,20 @@ const SuccessPartners = () => {
         >
           كبار شركاء النجاح
         </h2>
-        <Swiper spaceBetween={50} slidesPerView={4}>
-          {images.map((img) => {
-            return (
-              <SwiperSlide key={img.id}>
-                <img src={img.src} className="w-40" />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+
+        <AliceCarousel
+          autoPlay
+          autoPlayStrategy="default"
+          autoPlayInterval={1000}
+          animationDuration={1000}
+          animationType="fadeout"
+          infinite
+          touchTracking={false}
+          disableDotsControls
+          disableButtonsControls
+          items={items}
+          responsive={responsive}
+        />
       </div>
     </section>
   );
