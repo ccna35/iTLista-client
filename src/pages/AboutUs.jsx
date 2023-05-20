@@ -3,7 +3,6 @@ import { useInView } from "framer-motion";
 import { Fragment, useRef, useState } from "react";
 import CountUp from "react-countup";
 import { BsFillPlayFill } from "react-icons/bs";
-import ReactPlayer from "react-player";
 
 const AboutUs = () => {
   const ref = useRef(null);
