@@ -1,35 +1,19 @@
 import Root from "./Root";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Route, Routes, createBrowserRouter } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
-import { useCallback, useState } from "react";
 import Home from "./pages/Home";
-import Particles from "react-particles";
-import { loadFull } from "tsparticles";
 import ContactUs from "./pages/ContactUs";
 
-let router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    children: [
-      {
-        path: "about",
-        element: <AboutUs />,
-      },
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/contact",
-        element: <ContactUs />,
-      },
-    ],
-  },
-]);
-
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Routes>
+      <Route path="/" element={<Root />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<AboutUs />} />
+        <Route path="contact" element={<ContactUs />} />
+      </Route>
+    </Routes>
+  );
 }
 
 export default App;
