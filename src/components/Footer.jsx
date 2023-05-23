@@ -117,7 +117,7 @@ const Footer = () => {
           <p>جميع الحقوق محفوظة ©2023 لموقعنا iTLista</p>
           <img
             src="./payment_icon_collection_222-1200x123.png"
-            className="max-w-sm"
+            className="w-full max-w-sm"
             alt=""
           />
         </div>
