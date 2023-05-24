@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
 import { useEffect, useLayoutEffect, useState } from "react";
+import PreviousWork from "./pages/PreviousWork";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -29,6 +30,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/previouswork" element={<PreviousWork />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

@@ -43,23 +43,28 @@ const WhyChooseUs = () => {
         <h2 className="text-4xl text-center text-orange-itlista leading-relaxed">
           لماذا يجب أن تكون iTLista إختيارك الأول
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {reasons.map((reason) => {
-            return (
-              <div
-                className={`${
-                  isInView
-                    ? "translate-x-0 opacity-100"
-                    : "translate-x-full opacity-0"
-                } transition-all duration-700 item flex gap-4 items-center text-lg`}
-                key={reason.id}
-                ref={ref}
-              >
-                <ImCheckboxChecked className="text-dark-blue-itlista" />
-                <p>{reason.text}</p>
-              </div>
-            );
-          })}
+        <div className="flex flex-col md:flex-row justify-center">
+          <div className="flex flex-col gap-4">
+            {reasons.map((reason) => {
+              return (
+                <div
+                  className={`${
+                    isInView
+                      ? "translate-x-0 opacity-100"
+                      : "translate-x-full opacity-0"
+                  } transition-all duration-700 item flex gap-4 items-center text-lg p-4 border border-dark-blue-itlista rounded-lg bg-white group hover:bg-dark-blue-itlista hover:text-white`}
+                  key={reason.id}
+                  ref={ref}
+                >
+                  <ImCheckboxChecked className="text-dark-blue-itlista group-hover:text-white transition-colors duration-700" />
+                  <p>{reason.text}</p>
+                </div>
+              );
+            })}
+          </div>
+          <div>
+            <img src="./92519-handshake-blue.gif" className="max-w-full" />
+          </div>
         </div>
       </div>
     </section>

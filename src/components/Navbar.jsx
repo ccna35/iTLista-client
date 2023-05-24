@@ -69,7 +69,7 @@ export const Navbar = () => {
     {
       id: 5,
       text: "أعمالنا",
-      href: "/about",
+      href: "/previouswork",
     },
     {
       id: 6,
@@ -91,7 +91,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="p-4 lg:p-0 bg-white">
+    <nav className="p-4 lg:p-0 bg-white shadow-sm">
       <div className="container m-auto flex gap-32 items-stretch justify-between">
         <Link to="/">
           <div className="logo w-24 h-full flex items-center">
