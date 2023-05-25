@@ -6,6 +6,8 @@ import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
 import { useEffect, useLayoutEffect, useState } from "react";
 import PreviousWork from "./pages/PreviousWork";
+import Clients from "./pages/Clients";
+import ServicesPage from "./pages/ServicesPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -31,6 +33,8 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/previouswork" element={<PreviousWork />} />
+        <Route path="/clients" element={<Clients />} />
+        <Route path="/services" element={<ServicesPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

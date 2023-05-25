@@ -15,7 +15,7 @@ export const Navbar = () => {
     {
       id: 2,
       text: "خدماتنا",
-      href: "#",
+      href: "services",
       dropdownItems: [
         {
           id: 1,
@@ -64,7 +64,7 @@ export const Navbar = () => {
     {
       id: 4,
       text: "عملاؤنا",
-      href: "/about",
+      href: "/clients",
     },
     {
       id: 5,
